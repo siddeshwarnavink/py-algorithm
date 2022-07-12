@@ -41,22 +41,24 @@ def removeIslands(matrix):
 
     def lookupForConnection(edgeMap, x, y, matrix):
         # Top
-        if(x != 0 and matrix[x - 1][y] == 1):
+        if(x != 0 and matrix[x - 1][y] == 1 and '{}{}'.format(x - 1, y) not in edgeMap):
             edgeMap['{}{}'.format(x-1,y)] = True
             lookupForConnection(edgeMap, x-1, y, matrix)
 
         # Bottom
-        if(x != len(matrix) - 1 and matrix[x + 1][y] == 1):
+        if(x != len(matrix) - 1 and matrix[x + 1][y] == 1 and '{}{}'.format(x + 1, y) not in edgeMap):
             edgeMap['{}{}'.format(x+1,y)] = True
+            lookupForConnection(edgeMap, x+1, y, matrix)
 
         # Left
-        if(y != 0 and matrix[x][y - 1] == 1):
+        if(y != 0 and matrix[x][y - 1] == 1 and '{}{}'.format(x, y - 1) not in edgeMap):
             edgeMap['{}{}'.format(x,y-1)] = True
             lookupForConnection(edgeMap, x, y-1, matrix)
 
         # Right
-        if(y != len(matrix[x]) - 1 and matrix[x][y + 1] == 1):
+        if(y != len(matrix[x]) - 1 and matrix[x][y + 1] == 1 and '{}{}'.format(x, y + 1) not in edgeMap):
             edgeMap['{}{}'.format(x,y+1)] = True
+            lookupForConnection(edgeMap, x, y+1, matrix)
 
     for xCord, rows in enumerate(matrix):
         for yCord, rowItem in enumerate(rows):
