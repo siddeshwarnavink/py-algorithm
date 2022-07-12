@@ -84,7 +84,7 @@ def printMatrix(matrix):
     for rows in matrix:
         rowStr = ''
         for rowItem in rows:
-            rowStr = '{} {}'.format(rowStr,  '∎' if rowItem == 1 else ' ')
+            rowStr = '{} {}'.format(rowStr,  '∎' if rowItem == 1 else '∙')
         print (rowStr)
 
 print("Input:")
