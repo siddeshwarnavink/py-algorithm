@@ -78,4 +78,15 @@ def removeIslands(matrix):
     return matrix
 
 
-print(removeIslands(input_matrix))
+def printMatrix(matrix):
+    for rows in matrix:
+        rowStr = ''
+        for rowItem in rows:
+            rowStr = '{} {}'.format(rowStr,  '∎' if rowItem == 1 else ' ')
+        print (rowStr)
+
+print("Input:")
+printMatrix(input_matrix)
+
+print('\n Output:')
+printMatrix(removeIslands(input_matrix))
